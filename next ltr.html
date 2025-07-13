@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>💌 A Love Letter for You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #ffdee9, #b5fffc);
+      font-family: 'Segoe Script', cursive;
+      text-align: center;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-top: 50px;
+      color: #ff1493;
+      font-size: 2.8em;
+    }
+
+    .letter-box, .letter-box2 {
+      display: none;
+      margin: 30px auto;
+      max-width: 95vw;
+    }
+
+    .letter-img {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+      animation: fadeIn 1s ease-in-out;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .dancing-couple {
+      margin-top: 30px;
+      animation: floatDance 3s ease-in-out infinite;
+    }
+
+    @keyframes floatDance {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .love-button {
+      margin-top: 20px;
+      margin-bottom: 60px;
+      padding: 14px 40px;
+      font-size: 1.3em;
+      background-color: #ff1493;
+      border: none;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px #ff8ac6;
+    }
+
+    .love-button:hover {
+      background-color: #e01180;
+      box-shadow: 0 0 20px #ff70c4;
+    }
+  </style>
+</head>
+<body>
+  <h1>💌 For Someone Special</h1>
+  <h2>please open the letter first then click on love dear DUMBO</h2>
+
+  <button onclick="showLetter()">Open Letter 💕</button>
+
+  <div class="letter-box" id="letter1">
+    <img src="letter1.jpg" class="letter-img" alt="Love Letter 1">
+    <br>
+    <button onclick="showNextLetter()">Next Letter 💖</button>
+  </div>
+
+  <div class="letter-box2" id="letter2">
+    <img src="letter2.jpg" class="letter-img" alt="Love Letter 2">
+  </div>
+
+  <!-- 💖 Love Button to go to couple.html -->
+  <button class="love-button" onclick="goToCouple()">Love 💖</button>
+
+  <script>
+    function showLetter() {
+      document.getElementById('letter1').style.display = 'block';
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function showNextLetter() {
+      document.getElementById('letter1').style.display = 'none';
+      document.getElementById('letter2').style.display = 'block';
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function goToCouple() {
+      window.location.href = 'couple.html'; // or 'couple.html' if you renamed it
+    }
+  </script>
+</body>
+</html>

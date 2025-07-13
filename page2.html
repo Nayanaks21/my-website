@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎂 Birthday Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(to top, #fff0f5, #ffe4e1);
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 40px 20px 80px; /* bottom padding for button */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .message-box {
+      background: rgba(255, 240, 250, 0.8);
+      border-radius: 20px;
+      padding: 25px 35px;
+      margin-bottom: 20px;
+      max-width: 800px;
+      text-align: center;
+      font-size: 22px;
+      color: #d63384;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
+      border: 2px solid #ffb6c1;
+      text-shadow: 0 0 3px white;
+      z-index: 3;
+    }
+
+    .video-frame {
+      width: 80%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 25px;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 0 30px #ff69b4;
+      z-index: 2;
+      margin-bottom: 40px;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 50px;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: floatUp 10s infinite;
+      z-index: 1;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background-color: #888;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatUp {
+      0% {
+        bottom: -60px;
+        opacity: 0;
+        transform: translateX(0);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110%;
+        transform: translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    /* Sparkles */
+    .petal {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: radial-gradient(circle, #ff69b4 0%, transparent 70%);
+      border-radius: 50%;
+      animation: fall 10s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        top: -10px;
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        transform: translateX(60px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    /* Back Button */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #ff69b4;
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #ff69b4;
+      z-index: 999;
+      transition: transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎈 Balloons -->
+  <div class="balloon" style="left: 5%; background: #ffb6c1; animation-delay: 1s;"></div>
+  <div class="balloon" style="left: 25%; background: #ff69b4; animation-delay: 2s;"></div>
+  <div class="balloon" style="left: 50%; background: #ffd700; animation-delay: 3s;"></div>
+  <div class="balloon" style="left: 70%; background: #adff2f; animation-delay: 1.5s;"></div>
+  <div class="balloon" style="left: 90%; background: #ffa07a; animation-delay: 2.5s;"></div>
+
+  <!-- ✨ Sparkles -->
+  <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
+  <div class="petal" style="left: 20%; animation-delay: 2s;"></div>
+  <div class="petal" style="left: 30%; animation-delay: 4s;"></div>
+  <div class="petal" style="left: 40%; animation-delay: 1s;"></div>
+  <div class="petal" style="left: 50%; animation-delay: 3s;"></div>
+  <div class="petal" style="left: 60%; animation-delay: 5s;"></div>
+  <div class="petal" style="left: 70%; animation-delay: 2s;"></div>
+  <div class="petal" style="left: 80%; animation-delay: 4s;"></div>
+  <div class="petal" style="left: 90%; animation-delay: 1s;"></div>
+
+  <!-- 💬 Message -->
+  <div class="message-box">
+    This is all for you...💖<br>
+    nann kaile este madodakke agiddu..<br>
+    I feel you like all this...<br>
+    I hope I do your birthday special...<br>
+    I genuinely wish you smile like you are in heaven...💖<br>
+    Don't feel alone.. I am always with you...💖
+  </div>
+
+  <!-- 🎥 Video -->
+  <div class="video-frame">
+    <video autoplay controls>
+      <source src="brd.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- ⬅️ Back Button -->
+  <a href="index.html" class="back-button">⟵ Back</a>
+
+</body>
+</html>

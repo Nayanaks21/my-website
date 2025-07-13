@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise! 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle, #ffccff, #ffc0cb, #ff99cc);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .message {
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px #ff69b4;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .message h1 {
+      font-size: 3.5em;
+    }
+
+    .message p {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    .next-btn {
+      margin-top: 40px;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      animation: fadeIn 2s ease-in-out;
+      transition: background 0.3s ease;
+    }
+
+    .next-btn:hover {
+      background-color: #ff85c1;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotateZ(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h1>🎁 Surprise 🎁</h1>
+    <p>This day is all about <strong>you</strong>.<br>Wishing you joy, love, and sweet memories 💖</p>
+  </div>
+
+  <!-- Next Button -->
+  <button class="next-btn" onclick="goToLetter()">Next Surprise 💌</button>
+
+  <script>
+    // Confetti animation
+    const colors = ['#ff4d4d', '#ffcc00', '#33cc33', '#3399ff', '#cc33ff', '#ff66cc', '#00ffff', '#ff9966'];
+
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = 2 + Math.random() * 3 + 's';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 4 + 'px';
+      document.body.appendChild(confetti);
+    }
+
+    // Button click go to letter page
+    function goToLetter() {
+      window.location.href = "next ltr.html";
+    }
+  </script>
+</body>
+</html>
