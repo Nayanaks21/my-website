@@ -6,13 +6,12 @@
   <link rel="stylesheet" href="styleck.css">
 </head>
 <body>
+  <div class="main-wrapper">
   <h1>Happy Birthday! 🎉</h1>
 
   <div class="cake-container">
     <div class="cake">
-      <div class="candle">
-        <div class="flame"></div>
-      </div>
+      <div class="candle"><div class="flame"></div></div>
       <div class="layer layer-top"></div>
       <div class="layer layer-middle"></div>
       <div class="layer layer-bottom"></div>
@@ -20,8 +19,13 @@
   </div>
 
   <div class="message">Blow the candle to continue...</div>
-  <div class="balloon-container" id="balloons"></div>
-  <div class="sparkle-container" id="sparkles"></div>
+  <button onclick="nextPage()" class="next-btn">Next Page 🎁</button>
+</div>
+
+<!-- Balloons and sparkles stay below -->
+<div class="balloon-container" id="balloons"></div>
+<div class="sparkle-container" id="sparkles"></div>
+
 
   <button onclick="nextPage()" class="next-btn">Next Page 🎁</button>
 
