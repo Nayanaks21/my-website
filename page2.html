@@ -14,13 +14,18 @@
     body {
       font-family: 'Dancing Script', cursive;
       background: linear-gradient(to top, #fff0f5, #ffe4e1);
-      min-height: 100vh;
-      overflow-x: hidden;
-      padding: 40px 20px 80px; /* bottom padding for button */
+      height: 100vh;
+      overflow: hidden;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       position: relative;
+    }
+
+    .content-wrapper {
+      z-index: 3;
+      text-align: center;
+      max-width: 90%;
     }
 
     .message-box {
@@ -29,25 +34,22 @@
       padding: 25px 35px;
       margin-bottom: 20px;
       max-width: 800px;
-      text-align: center;
       font-size: 22px;
       color: #d63384;
       box-shadow: 0 0 25px rgba(255, 105, 180, 0.4);
       border: 2px solid #ffb6c1;
       text-shadow: 0 0 3px white;
-      z-index: 3;
     }
 
     .video-frame {
-      width: 80%;
+      width: 90vw;
       max-width: 800px;
       height: 450px;
       border-radius: 25px;
       overflow: hidden;
       border: 4px solid #fff;
       box-shadow: 0 0 30px #ff69b4;
-      z-index: 2;
-      margin-bottom: 40px;
+      margin: 0 auto;
     }
 
     video {
@@ -64,7 +66,7 @@
       border-radius: 50%;
       opacity: 0.8;
       animation: floatUp 10s infinite;
-      z-index: 1;
+      z-index: 0;
     }
 
     .balloon::after {
@@ -79,19 +81,9 @@
     }
 
     @keyframes floatUp {
-      0% {
-        bottom: -60px;
-        opacity: 0;
-        transform: translateX(0);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 110%;
-        transform: translateX(50px);
-        opacity: 0;
-      }
+      0% { bottom: -60px; opacity: 0; transform: translateX(0); }
+      50% { opacity: 1; }
+      100% { bottom: 110%; transform: translateX(50px); opacity: 0; }
     }
 
     /* Sparkles */
@@ -107,16 +99,8 @@
     }
 
     @keyframes fall {
-      0% {
-        top: -10px;
-        transform: translateX(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        top: 100%;
-        transform: translateX(60px) scale(0.5);
-        opacity: 0;
-      }
+      0% { top: -10px; transform: translateX(0) scale(1); opacity: 1; }
+      100% { top: 100%; transform: translateX(60px) scale(0.5); opacity: 0; }
     }
 
     /* Back Button */
@@ -161,22 +145,23 @@
   <div class="petal" style="left: 80%; animation-delay: 4s;"></div>
   <div class="petal" style="left: 90%; animation-delay: 1s;"></div>
 
-  <!-- 💬 Message -->
-  <div class="message-box">
-    This is all for you...💖<br>
-    nann kaile este madodakke agiddu..<br>
-    I feel you like all this...<br>
-    I hope I do your birthday special...<br>
-    I genuinely wish you smile like you are in heaven...💖<br>
-    Don't feel alone.. I am always with you...💖
-  </div>
+  <!-- 🌸 Main Content Centered -->
+  <div class="content-wrapper">
+    <div class="message-box">
+      This is all for you...💖<br>
+      nann kaile este madodakke agiddu..<br>
+      I feel you like all this...<br>
+      I hope I do your birthday special...<br>
+      I genuinely wish you smile like you are in heaven...💖<br>
+      Don't feel alone.. I am always with you...💖
+    </div>
 
-  <!-- 🎥 Video -->
-  <div class="video-frame">
-    <video autoplay controls>
-      <source src="brd.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div class="video-frame">
+      <video autoplay controls>
+        <source src="brd.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </div>
 
   <!-- ⬅️ Back Button -->
