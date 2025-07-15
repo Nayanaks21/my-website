@@ -1,4 +1,3 @@
-// Create 100 floating balloons
 // 🎈 Create floating balloons
 function createBalloon() {
   const balloon = document.createElement('div');
@@ -10,20 +9,17 @@ function createBalloon() {
   // Random animation delay
   balloon.style.animationDelay = Math.random() * 5 + 's';
 
-  // Add to the container
   document.getElementById('balloons').appendChild(balloon);
 
-  // Remove balloon after it finishes animation
+  // Remove after animation
   setTimeout(() => {
     balloon.remove();
-  }, 6000); // match animation duration
+  }, 6000);
 }
 
-// 🎉 Keep creating balloons every 300ms
 setInterval(createBalloon, 300);
 
-
-// Floating hearts
+// 💖 Floating hearts
 setInterval(() => {
   const sparkle = document.createElement('div');
   sparkle.className = 'sparkle';
