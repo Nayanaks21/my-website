@@ -3,44 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <title>Romantic Video Frame</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
+      height: 100vh;
       background: linear-gradient(to bottom right, #ffe0f0, #fff0f5);
       font-family: 'Dancing Script', cursive;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      overflow-x: hidden;
+      position: relative;
+      overflow: hidden;
     }
 
-    .frame-container {
-      width: 100%;
-      max-width: 800px;
-      padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 40px;
+    .main-content {
+      z-index: 2;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .top-message-box {
+      background: rgba(255, 240, 250, 0.85);
+      border-radius: 15px;
+      padding: 25px 30px;
+      border: 2px solid #ffb6c1;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      margin-bottom: 20px;
+      animation: fadeInUp 1.2s ease both;
+    }
+
+    .love-text {
+      color: #d63384;
+      font-size: 20px;
+      line-height: 1.8;
+      text-shadow: 0 0 2px white;
     }
 
     .frame {
       width: 100%;
-      max-width: 800px;
-      height: 450px;
+      max-width: 600px;
+      height: 350px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
       border: 4px solid #fff;
       position: relative;
+      margin: auto;
     }
 
     video {
@@ -54,30 +69,11 @@
       bottom: 20px;
       width: 100%;
       text-align: center;
-      font-size: 28px;
+      font-size: 24px;
       color: white;
       text-shadow: 0 0 10px #ff69b4;
       z-index: 2;
       font-weight: bold;
-    }
-
-    .top-message-box {
-      width: 100%;
-      background: rgba(255, 240, 250, 0.85);
-      border-radius: 15px;
-      padding: 25px 30px;
-      border: 2px solid #ffb6c1;
-      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-      margin-bottom: 20px;
-      animation: fadeInUp 1.2s ease both;
-    }
-
-    .love-text {
-      color: #d63384;
-      font-size: 22px;
-      text-align: center;
-      line-height: 1.8;
-      text-shadow: 0 0 2px white;
     }
 
     .next-button {
@@ -101,17 +97,11 @@
     }
 
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* 🎈 Balloons */
+    /* Balloons */
     .balloon {
       position: absolute;
       width: 40px;
@@ -119,7 +109,7 @@
       border-radius: 50%;
       opacity: 0.8;
       animation: floatUp 10s infinite;
-      z-index: 1;
+      z-index: 0;
     }
 
     .balloon::after {
@@ -134,22 +124,12 @@
     }
 
     @keyframes floatUp {
-      0% {
-        bottom: -60px;
-        opacity: 0;
-        transform: translateX(0);
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 110%;
-        transform: translateX(50px);
-        opacity: 0;
-      }
+      0% { bottom: -60px; opacity: 0; transform: translateX(0); }
+      50% { opacity: 1; }
+      100% { bottom: 110%; transform: translateX(50px); opacity: 0; }
     }
 
-    /* 💖 Sparkles */
+    /* Petals */
     .petal {
       position: absolute;
       width: 12px;
@@ -162,29 +142,22 @@
     }
 
     @keyframes fall {
-      0% {
-        top: -10px;
-        transform: translateX(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        top: 100%;
-        transform: translateX(60px) scale(0.5);
-        opacity: 0;
-      }
+      0% { top: -10px; transform: translateX(0) scale(1); opacity: 1; }
+      100% { top: 100%; transform: translateX(60px) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
 
 <body>
-  <!-- 🎈 Balloons -->
+
+  <!-- Balloons -->
   <div class="balloon" style="left: 5%; background: #ffb6c1; animation-delay: 1s;"></div>
   <div class="balloon" style="left: 25%; background: #ff69b4; animation-delay: 2s;"></div>
   <div class="balloon" style="left: 50%; background: #ffd700; animation-delay: 3s;"></div>
   <div class="balloon" style="left: 70%; background: #adff2f; animation-delay: 1.5s;"></div>
   <div class="balloon" style="left: 90%; background: #ffa07a; animation-delay: 2.5s;"></div>
 
-  <!-- 💖 Sparkles -->
+  <!-- Sparkling petals -->
   <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
   <div class="petal" style="left: 20%; animation-delay: 2s;"></div>
   <div class="petal" style="left: 30%; animation-delay: 4s;"></div>
@@ -195,12 +168,11 @@
   <div class="petal" style="left: 80%; animation-delay: 4s;"></div>
   <div class="petal" style="left: 90%; animation-delay: 1s;"></div>
 
-  <!-- 🌸 Frame + Message -->
-  <div class="frame-container">
-    <!-- Message -->
+  <!-- Centered Content -->
+  <div class="main-content">
     <div class="top-message-box">
       <p class="love-text">
-        this video is like my dream 💕... <br>
+        this video is like my dream 💕...<br>
         Andre Nanu yenadru vedio madidre.<br>
         nanu ninn jothe hegerbeku antha ankondidini antha adu hege kanathe its just like my dream..💖<br>
         nanu ninna meet madi bandaga ninna smell nange barthane erathe..<br>
@@ -208,7 +180,6 @@
       </p>
     </div>
 
-    <!-- Video -->
     <div class="frame">
       <video autoplay controls>
         <source src="anime vedio.mp4" type="video/mp4">
@@ -218,7 +189,7 @@
     </div>
   </div>
 
-  <!-- 🔘 Button -->
+  <!-- Next Page Button -->
   <a href="page2.html" class="next-button">Next Page ➜</a>
 </body>
 </html>
