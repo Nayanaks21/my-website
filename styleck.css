@@ -12,6 +12,16 @@ h1 {
   color: #ff1493;
   margin-top: 30px;
 }
+.main-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+
 
 .cake-container {
   display: flex;
