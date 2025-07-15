@@ -1,11 +1,27 @@
 // Create 100 floating balloons
-for (let i = 0; i < 100; i++) {
+// 🎈 Create floating balloons
+function createBalloon() {
   const balloon = document.createElement('div');
-  balloon.className = 'balloon';
+  balloon.classList.add('balloon');
+
+  // Random horizontal position (0% to 100%)
   balloon.style.left = Math.random() * 100 + 'vw';
+
+  // Random animation delay
   balloon.style.animationDelay = Math.random() * 5 + 's';
+
+  // Add to the container
   document.getElementById('balloons').appendChild(balloon);
+
+  // Remove balloon after it finishes animation
+  setTimeout(() => {
+    balloon.remove();
+  }, 6000); // match animation duration
 }
+
+// 🎉 Keep creating balloons every 300ms
+setInterval(createBalloon, 300);
+
 
 // Floating hearts
 setInterval(() => {
