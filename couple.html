@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <title>Romantic Video Frame</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
       background: linear-gradient(to bottom right, #ffe0f0, #fff0f5);
       font-family: 'Dancing Script', cursive;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      position: relative;
-      overflow: hidden;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding: 20px;
     }
 
-    .main-content {
+    .frame-container {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
       z-index: 2;
-      text-align: center;
-      max-width: 90%;
     }
 
     .top-message-box {
+      width: 100%;
       background: rgba(255, 240, 250, 0.85);
       border-radius: 15px;
       padding: 25px 30px;
@@ -41,27 +51,28 @@
 
     .love-text {
       color: #d63384;
-      font-size: 20px;
+      font-size: 22px;
+      text-align: center;
       line-height: 1.8;
       text-shadow: 0 0 2px white;
     }
 
     .frame {
       width: 100%;
-      max-width: 600px;
-      height: 350px;
+      max-width: 800px;
+      height: 450px;
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(255, 0, 128, 0.3);
       border: 4px solid #fff;
       position: relative;
-      margin: auto;
+      z-index: 2;
     }
 
-    video {
+    iframe {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      border: none;
     }
 
     .text-overlay {
@@ -69,10 +80,10 @@
       bottom: 20px;
       width: 100%;
       text-align: center;
-      font-size: 24px;
+      font-size: 28px;
       color: white;
       text-shadow: 0 0 10px #ff69b4;
-      z-index: 2;
+      z-index: 3;
       font-weight: bold;
     }
 
@@ -97,11 +108,17 @@
     }
 
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Balloons */
+    /* 🎈 Balloons */
     .balloon {
       position: absolute;
       width: 40px;
@@ -109,7 +126,7 @@
       border-radius: 50%;
       opacity: 0.8;
       animation: floatUp 10s infinite;
-      z-index: 0;
+      z-index: 1;
     }
 
     .balloon::after {
@@ -129,7 +146,7 @@
       100% { bottom: 110%; transform: translateX(50px); opacity: 0; }
     }
 
-    /* Petals */
+    /* 💖 Sparkles */
     .petal {
       position: absolute;
       width: 12px;
@@ -149,15 +166,14 @@
 </head>
 
 <body>
-
-  <!-- Balloons -->
+  <!-- 🎈 Balloons -->
   <div class="balloon" style="left: 5%; background: #ffb6c1; animation-delay: 1s;"></div>
   <div class="balloon" style="left: 25%; background: #ff69b4; animation-delay: 2s;"></div>
   <div class="balloon" style="left: 50%; background: #ffd700; animation-delay: 3s;"></div>
   <div class="balloon" style="left: 70%; background: #adff2f; animation-delay: 1.5s;"></div>
   <div class="balloon" style="left: 90%; background: #ffa07a; animation-delay: 2.5s;"></div>
 
-  <!-- Sparkling petals -->
+  <!-- 💖 Sparkles -->
   <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
   <div class="petal" style="left: 20%; animation-delay: 2s;"></div>
   <div class="petal" style="left: 30%; animation-delay: 4s;"></div>
@@ -168,11 +184,12 @@
   <div class="petal" style="left: 80%; animation-delay: 4s;"></div>
   <div class="petal" style="left: 90%; animation-delay: 1s;"></div>
 
-  <!-- Centered Content -->
-  <div class="main-content">
+  <!-- 🌸 Frame + Message -->
+  <div class="frame-container">
+    <!-- Message -->
     <div class="top-message-box">
       <p class="love-text">
-        this video is like my dream 💕...<br>
+        this video is like my dream 💕... <br>
         Andre Nanu yenadru vedio madidre.<br>
         nanu ninn jothe hegerbeku antha ankondidini antha adu hege kanathe its just like my dream..💖<br>
         nanu ninna meet madi bandaga ninna smell nange barthane erathe..<br>
@@ -180,16 +197,17 @@
       </p>
     </div>
 
+    <!-- 📹 Video Frame with Google Drive Link -->
     <div class="frame">
-      <video autoplay controls>
-        <source src="anime vedio.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <iframe 
+        src="https://drive.google.com/file/d/18f90R8jPaLF_f_GMXsNa_fB6z0Po8jBO/preview" 
+        allow="autoplay" allowfullscreen>
+      </iframe>
       <div class="text-overlay">💖 You & Me 💖</div>
     </div>
   </div>
 
-  <!-- Next Page Button -->
+  <!-- 🔘 Button -->
   <a href="page2.html" class="next-button">Next Page ➜</a>
 </body>
 </html>
